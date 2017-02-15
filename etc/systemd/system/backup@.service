@@ -1,0 +1,7 @@
+[Unit]
+Description = Backup to USB Flash Drive
+BindsTo = dev-%i.device
+
+[Service]
+Type = simple
+ExecStart = /home/pi/run-copy.sh %I
