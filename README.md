@@ -29,10 +29,20 @@ current time formatted as shown below:
 To get more accurate timestamps, insert a future time and insert the USB stick
 at that future time.
 
-There is currently no way of setting the timezone via a USB stick, so time
-changes for daylight saving time are not automatic.  
-
 An example `current_date.txt` file is in the /home/pi folder.
+
+### Setting Timezone
+
+In addition to setting time, you may also wish to set the timezone if you'd like
+automatic daylight saving time time changes.
+
+Look up your appropriate timezone under the TZ column
+[on this page](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
+
+Create a file on the USB stick called `timezone.txt` with the timezone formatted
+the same way it is shown on the Wikipedia page (i.e., as shown below):
+
+    America/Los_Angeles
 
 ### Obtaining Data
 
