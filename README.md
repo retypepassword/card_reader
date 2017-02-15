@@ -18,6 +18,8 @@ directory is usually on the second partition on the microSD card.
 
 ### Setting Time
 
+Time must be set on the RPi every time it is plugged in (so avoid unplugging it).
+
 To set approximate time on the RPi<sup>1</sup>, create a file called
 `current_date.txt` in the root directory<sup>2</sup> of the USB stick with the
 current time formatted as shown below:  

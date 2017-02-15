@@ -17,7 +17,7 @@ func main() {
             panic(err)
         }
 
-        // Make a new file every month. Update last_swipe and today after the
+        // Make a new file every quarter. Update last_swipe and today after the
         // loop so that the first swipe of this month doesn't get recorded in
         // last month's file.
         for ; get_quarter(today) == get_quarter(last_swipe); last_swipe, today = today, time.Now() {
