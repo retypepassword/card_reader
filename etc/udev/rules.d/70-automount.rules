@@ -1,1 +1,1 @@
-ACTION=="add", KERNEL=="sd?1", SUBSYSTEM=="block", RUN+="/bin/systemctl --no-block start backup@%k.service"
+ACTION=="add", KERNEL=="sd*", SUBSYSTEM=="block", ENV{ID_FS_TYPE}=="vfat", RUN+="/bin/systemctl --no-block start backup@%k.service"
