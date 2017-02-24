@@ -7,9 +7,19 @@ import (
 )
 
 func main() {
-    for {
-        var today time.Time = time.Now()
-        var last_swipe time.Time = today
+    var today time.Time = time.Now()
+    var last_swipe time.Time = today
+
+    // Make a new file every quarter. Update last_swipe and today after the loop
+    // so that the first swipe of this month doesn't get recorded in last
+    // month's file.
+    for ; get_quarter(today) == get_quarter(last_swipe); last_swipe = today {
+        var student_id string
+        fmt.Scan(&student_id)
+
+        today = time.Now()
+        var today_str string = today.Format("01,02,2006,15:04")
+
         var filename string = fmt.Sprintf("bis2a_oh_%s%v.csv", get_quarter(today), today.Year())
 
         f, err := os.OpenFile(filename, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0666)
@@ -17,20 +27,9 @@ func main() {
             panic(err)
         }
 
-        // Make a new file every quarter. Update last_swipe and today after the
-        // loop so that the first swipe of this month doesn't get recorded in
-        // last month's file.
-        for ; get_quarter(today) == get_quarter(last_swipe); last_swipe = today {
-            var student_id string
-            fmt.Scan(&student_id)
-
-            today = time.Now()
-            var today_str string = today.Format("01,02,2006,15:04")
-
-            _, err := f.WriteString(fmt.Sprintf("%s,%s\n", today_str, student_id))
-            if err != nil {
-                panic(err)
-            }
+        _, err = f.WriteString(fmt.Sprintf("%s,%s\n", today_str, student_id))
+        if err != nil {
+            panic(err)
         }
 
         f.Close()
