@@ -1,2 +1,3 @@
 rpi2-card-reader.tar.gz
 *.csv
+/home/pi/backup

@@ -20,10 +20,13 @@ func main() {
         // Make a new file every quarter. Update last_swipe and today after the
         // loop so that the first swipe of this month doesn't get recorded in
         // last month's file.
-        for ; get_quarter(today) == get_quarter(last_swipe); last_swipe, today = today, time.Now() {
-            var today_str string = today.Format("01,02,2006,15:04")
+        for ; get_quarter(today) == get_quarter(last_swipe); last_swipe = today {
             var student_id string
             fmt.Scan(&student_id)
+
+            today = time.Now()
+            var today_str string = today.Format("01,02,2006,15:04")
+
             _, err := f.WriteString(fmt.Sprintf("%s,%s\n", today_str, student_id))
             if err != nil {
                 panic(err)
