@@ -12,7 +12,12 @@ card reader) is via a FAT-formatted USB stick (Windows-compatible USB sticks).
 ## Setup
 
 Extract the files in this directory to the RPi's root directory (/). The root
-directory is usually on the second partition on the microSD card.
+directory is usually on the second partition on the microSD card. Boot the pi. Install the gpsd and gpsd-clients packages (`apt-get install gpsd gpsd-clients`). Also install the ntp package and disable systemd-timesyncd:
+
+   systemctl stop systemd-timesyncd.service
+   systemctl disable systemd-timesyncd.service
+
+   apt-get install ntp
 
 ## Usage
 

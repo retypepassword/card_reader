@@ -18,5 +18,6 @@ if [ "$_IP" ]; then
 fi
 
 openvt -s /home/pi/run-card-reader.sh
+gpspipe -r -n 1 &
 
 exit 0
