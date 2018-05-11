@@ -17,7 +17,7 @@ if [ "$_IP" ]; then
   printf "My IP address is %s\n" "$_IP"
 fi
 
-openvt -s /home/pi/run-card-reader.sh
 gpspipe -r -n 1 &
+openvt -s /home/pi/run-card-reader.sh
 
 exit 0

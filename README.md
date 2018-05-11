@@ -19,6 +19,10 @@ directory is usually on the second partition on the microSD card. Boot the pi. I
 
    apt-get install ntp
 
+Also install dnsmasq and hostapd for wireless access
+
+apt-get install dnsmasq hostapd
+
 ## Usage
 
 ### Setting Time
