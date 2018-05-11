@@ -1,6 +1,6 @@
 #!/bin/bash
 mount /dev/$1 /mnt
-cp /home/pi/bis2a* /mnt
+cp /home/pi/cards_read* /mnt
 
 # Set timezone if there's a timezone file
 if [ -e /mnt/timezone.txt ]; then
@@ -21,4 +21,4 @@ fi
 umount /mnt
 
 # Gzip and move files older than 3 months to backup folder
-find /home/pi/ -mtime +90 -exec gzip {} \; -exec mv {}.gz /home/pi/backup/ \;
+find /home/pi/ -maxdepth 1 -mtime +90 -name "cards_read*" -exec gzip {} \; -exec mv {}.gz /home/pi/backup/ \;
