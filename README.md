@@ -11,6 +11,8 @@ Operation is headless; the primary interface for I/O with the RPi (besides the
 card reader) is via a FAT-formatted USB stick (Windows-compatible USB sticks) or
 via its web server located at http://10.23.45.1 when connected to the RPi's hotspot.
 
+**NB**: You will not have access to the Internet while connected to the RPi's hotspot.
+
 ## Setup
 
 Boot the pi. Install the gpsd and gpsd-clients packages (`apt-get install gpsd gpsd-clients`). Also install the ntp package and disable systemd-timesyncd:
