@@ -20,7 +20,7 @@ func main() {
         today = time.Now()
         var today_str string = today.Format("01,02,2006,15:04")
 
-        var filename string = fmt.Sprintf("bis2a_oh_%s%v.csv", get_quarter(today), today.Year())
+        var filename string = fmt.Sprintf("cards_read_%s%v.csv", get_quarter(today), today.Year())
 
         f, err := os.OpenFile(filename, os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0666)
         if err != nil {
